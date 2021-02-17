@@ -7,7 +7,7 @@
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>
-                                <StackLayout Orientation="Horizontal" VerticalOptions="Center">
+                                <StackLayout Orientation="Horizontal" VerticalOptions="Center" BackgroundColor="Gray" Padding="5">
                                     <Label VerticalOptions="Center" FontAttributes="Bold" FontSize="Medium" Text="{Binding .RoomName}" TextColor="Black" VerticalTextAlignment="Center" />
                                 </StackLayout>
                             </ViewCell>
@@ -16,7 +16,7 @@
                     <ListView.GroupHeaderTemplate>
                         <DataTemplate>
                             <ViewCell>
-                                <Grid>
+                                <Grid BackgroundColor="DarkSlateGray" RowSpacing="1" Padding="5">
                                     <Label FontAttributes="Bold" FontSize="Small" Text="{Binding Name}" TextColor="Gray" VerticalTextAlignment="Center" />
                                     <Image x:Name="ImgA" Source="{Binding StateIcon}" Margin="0,0,5,0" HeightRequest="20" WidthRequest="20" HorizontalOptions="End" />
                                     <Grid.GestureRecognizers>
