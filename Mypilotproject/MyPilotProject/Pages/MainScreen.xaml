@@ -7,9 +7,41 @@
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>
-                                <StackLayout Orientation="Horizontal" VerticalOptions="Center" BackgroundColor="Gray" Padding="5">
-                                    <Label VerticalOptions="Center" FontAttributes="Bold" FontSize="Medium" Text="{Binding .ProductName}" TextColor="Black" VerticalTextAlignment="Center" />
-                                </StackLayout>
+                                <StackLayout Orientation="Vertical" VerticalOptions="Center" BackgroundColor="Gray" Padding="5">
+                                    <Label Grid.Column="1" Grid.Row="1">
+                                        <Label.FormattedText>
+                                            <FormattedString>
+                                                <Span TextColor="White" FontSize="18" Text="SalesOrderID - "/>
+                                                <Span TextColor="White" FontSize="18" Text="{Binding SalesOrderID}"/>
+                                            </FormattedString>
+                                        </Label.FormattedText>
+                                    </Label>
+                                    <Label Grid.Column="1" Grid.Row="1">
+                                        <Label.FormattedText>
+                                            <FormattedString>
+                                                <Span TextColor="White" FontSize="18" Text="ProductName - "/>
+                                                <Span TextColor="White" FontSize="18" Text="{Binding ProductName}"/>
+                                            </FormattedString>
+                                        </Label.FormattedText>
+                                    </Label>
+                                    <Label Grid.Column="1" Grid.Row="1">
+                                        <Label.FormattedText>
+                                            <FormattedString>
+                                                <Span TextColor="White" FontSize="18" Text="UnitPrice - "/>
+                                                <Span TextColor="White" FontSize="18" Text="{Binding UnitPrice}"/>
+                                            </FormattedString>
+                                        </Label.FormattedText>
+                                    </Label>
+                                    <Label Grid.Column="1" Grid.Row="1">
+                                        <Label.FormattedText>
+                                            <FormattedString>
+                                                <Span TextColor="White" FontSize="18" Text="OrderQty - "/>
+                                                <Span TextColor="White" FontSize="18" Text="{Binding OrderQty}"/>
+                                            </FormattedString>
+                                        </Label.FormattedText>
+                                    </Label>
+                                    
+                                 </StackLayout>
                             </ViewCell>
                         </DataTemplate>
                     </ListView.ItemTemplate>
@@ -17,8 +49,46 @@
                         <DataTemplate>
                             <ViewCell>
                                 <Grid BackgroundColor="DarkSlateGray" RowSpacing="1" Padding="5">
-                                    <Label FontAttributes="Bold" FontSize="Small" Text="{Binding SalesPerson}" TextColor="Gray" VerticalTextAlignment="Center" />
-                                    <Image x:Name="ImgA" Source="{Binding StateIcon}" Margin="0,0,5,0" HeightRequest="20" WidthRequest="20" HorizontalOptions="End" />
+                                    <Label Grid.Column="0" Grid.Row="0" FontSize="Micro"  TextColor="Gray" >
+                                        <Label.FormattedText>
+                                            <FormattedString>
+                                                <Span TextColor="White"  Text="SalesPerson - "/>
+                                                <Span TextColor="White"  Text="{Binding SalesPerson}"/>
+                                            </FormattedString>
+                                        </Label.FormattedText>
+                                    </Label>
+                                    <Label Grid.Column="1" Grid.Row="0" FontSize="Micro"  TextColor="Gray" >
+                                        <Label.FormattedText>
+                                            <FormattedString>
+                                                <Span TextColor="White" Text="Customer - "/>
+                                                <Span TextColor="White" Text="{Binding Customer}"/>
+                                            </FormattedString>
+                                        </Label.FormattedText>
+                                    </Label>
+                                    <Label Grid.Column="2" Grid.Row="0" FontSize="Micro"  TextColor="Gray" >
+                                        <Label.FormattedText>
+                                            <FormattedString>
+                                                <Span TextColor="White" Text="OrderDate - "/>
+                                                <Span TextColor="White" Text="{Binding OrderDate}"/>
+                                            </FormattedString>
+                                        </Label.FormattedText>
+                                    </Label>
+                                    <Label Grid.Column="3" Grid.Row="0" FontSize="Micro"  TextColor="Gray" >
+                                        <Label.FormattedText>
+                                            <FormattedString>
+                                                <Span TextColor="White" Text="SalesOrder - "/>
+                                                <Span TextColor="White" Text="{Binding SalesOrder}"/>
+                                            </FormattedString>
+                                        </Label.FormattedText>
+                                    </Label>
+                                    <Label Grid.Column="4" Grid.Row="0" FontSize="Micro"  TextColor="Gray" >
+                                        <Label.FormattedText>
+                                            <FormattedString>
+                                                <Span TextColor="White" Text="TotalAmount - "/>
+                                                <Span TextColor="White" Text="{Binding TotalAmount}"/>
+                                            </FormattedString>
+                                        </Label.FormattedText>
+                                    </Label>
                                     <Grid.GestureRecognizers>
                                         <TapGestureRecognizer Command="{Binding Source={x:Reference currentPage}, Path=BindingContext.RefreshItemsCommand}" NumberOfTapsRequired="1" CommandParameter="{Binding .}" />
                                     </Grid.GestureRecognizers>
