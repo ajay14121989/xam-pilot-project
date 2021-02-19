@@ -28,16 +28,29 @@ namespace MyPilotProject.RestAPIClient
             return new LoginResponseModel { token= userresult.token };
         }
 
-        internal static async Task<LoginResponseModel> getSalesData()
+       
+
+        internal static async Task<SalesListResponse> getSalesData()
         {
             var httpClient = new HttpClient();
-            httpClient.BaseAddress = new Uri(MainWebServiceUrl);
 
 
-            var response = await httpClient.GetAsync("846df0a3");
-            var data = await response.Content.ReadAsStringAsync();
-            var userresult = JsonConvert.DeserializeObject<LoginResponseModel>(data);
-            return new LoginResponseModel { token = userresult.token };
+            var response = await httpClient.GetAsync("https://api.mocki.io/v1/935cd971");
+            if (response.StatusCode == System.Net.HttpStatusCode.OK)
+            {
+                var data = await response.Content.ReadAsStringAsync();
+
+
+                var list = JsonConvert.DeserializeObject<SalesListResponse>(data);
+                return list;
+            }
+            else
+            {
+                return null;
+            }
+
+
+
         }
     }
 }

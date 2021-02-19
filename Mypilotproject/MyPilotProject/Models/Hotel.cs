@@ -8,7 +8,7 @@ namespace MyPilotProject.Models
     {
         public string Name { get; set; }
 
-        public List<Room> Rooms { get; set; }
+        public List<SalesDetail> Rooms { get; set; }
 
         public bool IsVisible { get; set; } = false;
 
@@ -16,7 +16,7 @@ namespace MyPilotProject.Models
         {
         }
 
-        public Hotel(string name, List<Room> rooms)
+        public Hotel(string name, List<SalesDetail> rooms)
         {
             Name = name;
             Rooms = rooms;

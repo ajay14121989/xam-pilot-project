@@ -11,7 +11,7 @@ namespace MyPilotProject
         {
             InitializeComponent();
 
-            MainPage = new LoginPage();
+            MainPage = new MainScreen();
         }
 
         protected override void OnStart()

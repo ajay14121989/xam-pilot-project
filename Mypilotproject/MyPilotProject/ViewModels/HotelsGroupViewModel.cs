@@ -1,4 +1,5 @@
 ﻿using MyPilotProject.Models;
+using MyPilotProject.RestAPIClient;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -62,24 +63,32 @@ namespace MyPilotProject.ViewModels
                     return;
                 IsBusy = true;
                 Items.Clear();
-                List<Room> Hotel1rooms = new List<Room>() { new Room("Jasmine", 1), new Room("Flower Suite", 2), new Room("narcissus", 1)
-                };
-                List<Room> Hotel2rooms = new List<Room>()
-                {
-                    new Room("Princess", 1), new Room("Royale", 1), new Room("Queen", 1)
-                };
-                List<Room> Hotel3rooms = new List<Room>()
-                {
-                    new Room("Marhaba", 1), new Room("Marhaba Salem", 1), new Room("Salem Royal", 1), new Room("Wedding Roome", 1), new Room("Wedding Suite", 2)
-                };
-                List<Hotel> items = new List<Hotel>() { new Hotel("Yasmine Hammamet", Hotel1rooms), new Hotel("El Mouradi Hammamet,", Hotel2rooms), new Hotel("Marhaba Royal Salem", Hotel3rooms) };
 
-                if (items != null && items.Count > 0)
-                {
-                    foreach (var hotel in items)
+                SalesListResponse list = await RestClient.getSalesData();
+                Items = new ObservableCollection<HotelViewModel>();
+
+                   foreach (var hotel in list.data)
                         Items.Add(new HotelViewModel(hotel));
-                }
-                else { IsEmpty = true; }
+                
+
+                    //List<Room> Hotel1rooms = new List<Room>() { new Room("Jasmine", 1), new Room("Flower Suite", 2), new Room("narcissus", 1)
+                    //};
+                    //List<Room> Hotel2rooms = new List<Room>()
+                    //{
+                    //    new Room("Princess", 1), new Room("Royale", 1), new Room("Queen", 1)
+                    //};
+                    //List<Room> Hotel3rooms = new List<Room>()
+                    //{
+                    //    new Room("Marhaba", 1), new Room("Marhaba Salem", 1), new Room("Salem Royal", 1), new Room("Wedding Roome", 1), new Room("Wedding Suite", 2)
+                    //};
+                    //List<Hotel> items = new List<Hotel>() { new Hotel("Yasmine Hammamet", Hotel1rooms), new Hotel("El Mouradi Hammamet,", Hotel2rooms), new Hotel("Marhaba Royal Salem", Hotel3rooms) };
+
+                    //if (items != null && items.Count > 0)
+                    //{
+                    //    foreach (var hotel in items)
+                    //        Items.Add(new HotelViewModel(hotel));
+                    //}
+                    //else { IsEmpty = true; }
 
             }
             catch (Exception ex)

@@ -12,15 +12,12 @@ namespace MyPilotProject.ViewModels
         // It's a backup variable for storing CountryViewModel objects
         private ObservableRangeCollection<RoomViewModel> hotelRooms = new ObservableRangeCollection<RoomViewModel>();
 
-        internal HotelViewModel(Hotel hotel, bool expanded = false)
+        internal HotelViewModel(SalesListItem salesListItem, bool expanded = false)
         {
-            this.Hotel = hotel;
+            this.SalesListItem = salesListItem;
             this._expanded = expanded;
-
-            foreach (Room room in hotel.Rooms)
-            {
-                hotelRooms.Add(new RoomViewModel(room));
-            }
+            hotelRooms.Add(new RoomViewModel(salesListItem.Detail));
+            
             if (expanded)
                 this.AddRange(hotelRooms);
 
@@ -65,8 +62,15 @@ namespace MyPilotProject.ViewModels
                 { return "arrow_b.png"; }
             }
         }
-        public string Name { get { return Hotel.Name; } }
-        internal Hotel Hotel { get; set; }
+        public int id { get { return SalesListItem.id; } }
+
+        public SalesDetail Detail { get { return SalesListItem.Detail; } }
+        public string Customer { get { return SalesListItem.Customer; } }
+        public string OrderDate { get { return SalesListItem.OrderDate; } }
+        public string SalesOrder { get { return SalesListItem.SalesOrder; } }
+        public string SalesPerson { get { return SalesListItem.SalesPerson; } }
+        public int TotalAmount { get { return SalesListItem.TotalAmount; } }
+        internal SalesListItem SalesListItem { get; set; }
 
     }
 }

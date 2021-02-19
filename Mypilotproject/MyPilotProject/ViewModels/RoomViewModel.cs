@@ -9,19 +9,23 @@ namespace MyPilotProject.ViewModels
 {
     public class RoomViewModel
     {
-        private Room _room;
+        private SalesDetail _salesDetail;
 
-        public RoomViewModel(Room room)
+        public RoomViewModel(SalesDetail salesDetail)
         {
-            this._room = room;
+            this._salesDetail = salesDetail;
         }
 
-        public string RoomName { get { return _room.RoomName; } }
-        public int TypeID { get { return _room.TypeID; } }
+        public int OrderQty { get { return _salesDetail.OrderQty; } }
+        public int UnitPrice { get { return _salesDetail.UnitPrice; } }
 
-        public Room Room
+        public string ProductName { get { return _salesDetail.ProductName; } }
+        public int SalesOrderID { get { return _salesDetail.SalesOrderID; } }
+
+
+        public SalesDetail SalesDetail
         {
-            get => _room;
+            get => _salesDetail;
         }
 
     }
